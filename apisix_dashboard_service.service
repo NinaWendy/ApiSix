@@ -1,0 +1,13 @@
+[Unit]
+Description=Apache APISIX Dashboard
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/apisix-dashboard
+Restart=always
+RestartSec=5
+User=www-data
+WorkingDirectory=/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
