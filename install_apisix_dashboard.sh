@@ -7,6 +7,18 @@ docker run -d --name dashboard \
            -v <CONFIG_FILE>:/usr/local/apisix-dashboard/conf/conf.yaml \
            apache/apisix-dashboard
 
+docker run -d --name dashboard \
+           -p 9000:9000        \
+           -v /usr/local/apisix-dashboard.yaml:/usr/local/apisix-dashboard/conf/conf.yaml \
+           apache/apisix-dashboard
+
+docker run -d --name dashboard \
+  --network host \
+  -v /usr/local/apisix-dashboard.yaml:/usr/local/apisix-dashboard/conf/conf.yaml \
+  apache/apisix-dashboard
+
+
+# Config file : /usr/local/apisix/conf/config-default.yaml
 ------------------------------------------------------------------------------------------
 # RPM install
 ------------------------------------------------------------------------------------------
@@ -20,7 +32,7 @@ sudo manager-api -p /usr/local/apisix/dashboard/
 systemctl start apisix-dashboard
 
 ------------------------------------------------------------------------------------------
-# Or Build rirectly from source
+# Or Build directly from source
 ------------------------------------------------------------------------------------------
 #The Dashboard project contains both manager-api and web, but web is optional.
 ## Prerequiste
@@ -72,3 +84,19 @@ systemctl stop apisix-dashboard
 # check apisix-dashboard status
 systemctl status apisix-dashboard
 
+
+------------------------------------------------------------------------------------------
+# Alternative Install
+------------------------------------------------------------------------------------------
+
+wget https://github.com/apache/apisix-dashboard/releases/download/v3.0.1/apisix-dashboard-3.0.1-linux-amd64.tar.gz
+
+wget https://github.com/apache/apisix-dashboard/archive/refs/tags/v3.0.1.tar.gz
+
+tar -zxvf apisix-dashboard-3.0.1-linux-amd64.tar.gz
+
+tar -zxvf v3.0.1.tar.gz
+
+cd apisix-dashboard-3.0.1
+
+./apisix-dashboard
