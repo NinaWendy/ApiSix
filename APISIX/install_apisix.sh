@@ -80,3 +80,6 @@ sudo apt install -y apisix=3.8.0-0
 
 sudo apisix init
 sudo apisix start
+
+
+'!23@apisix*/'
