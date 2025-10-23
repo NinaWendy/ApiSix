@@ -1,4 +1,4 @@
-# Docker installtion
+## Docker installtion
 ------------------------------------------------------------------------------------
 
 sudo apt install virt-what 
@@ -12,7 +12,7 @@ sudo docker run -d --name etcd -p 2379:2379 -e ETCD_UNSUPPORTED_ARCH=arm64 -e ET
 sudo docker ps -a
 
 ------------------------------------------------------------------------------------
-# Normal Installation
+## Normal Installation
 
 ETCD_VERSION='3.6.4'
 wget https://github.com/etcd-io/etcd/releases/download/v${ETCD_VERSION}/etcd-v${ETCD_VERSION}-linux-amd64.tar.gz
@@ -25,9 +25,17 @@ nohup etcd >/tmp/etcd.log 2>&1 &
 
 ## Remove etcd installtion
 
-  129  ps aux | grep etcd
-  130  pkill etcd
-  131  sudo rm -f /usr/bin/etcd /usr/bin/etcdctl
-  132  rm -rf etcd-v3.6.4-linux-amd64 etcd-v3.6.4-linux-amd64.tar.gz
-  133  rm -f /tmp/etcd.log
-  134  ss -tulpn
+ps aux | grep etcd
+pkill etcd
+sudo rm -f /usr/bin/etcd /usr/bin/etcdctl
+rm -rf etcd-v3.6.4-linux-amd64 etcd-v3.6.4-linux-amd64.tar.gz
+rm -f /tmp/etcd.log
+ss -tulpn
+
+------------------------------------------------------------------------------------
+
+## Cluster Installation
+
+
+
+
